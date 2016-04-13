@@ -1,17 +1,19 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var minimist = require('minimist');
+
+var minimist = require('minimist')
+
 var args = minimist(process.argv.slice(2), {
   string: 'host',
-  alias: { h: 'help', v: 'version' },
+  alias: { h: 'help', v: 'version', p: 'port' },
+  default: { host: '127.0.0.1', port: 4567 },
 });
 
-console.log(args);
 for (x in args) {
-	switch(x) {
+	switch (x) {
 		case 'host':
-		console.log("we have a host and it is " + args["host"]);
+		console.log("we have a host and it is " + args['host']);
 		break;
 	}
 }
