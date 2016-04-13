@@ -1,7 +1,20 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var minimist = require('minimist');
+var args = minimist(process.argv.slice(2), {
+  string: 'host',
+  alias: { h: 'help', v: 'version' },
+});
 
+console.log(args);
+for (x in args) {
+	switch(x) {
+		case 'host':
+		console.log("we have a host and it is " + args["host"]);
+		break;
+	}
+}
 
 app.get('/', function(req,res) {
 	res.send('<h1>Hello world. This is the gearvr websocket server</h1>');
@@ -24,8 +37,8 @@ io.on('connection', function(socket) {
 });
 
 
-http.listen(4567, '192.168.11.34', function() {
-	console.log('GearVR server listening on port 4567');
-});
+// http.listen(4567, '192.168.11.34', function() {
+// 	console.log('GearVR server listening on port 4567');
+// });
 
 
