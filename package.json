@@ -4,6 +4,7 @@
   "description": "A websocket server to distribute input data to GearVRs",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js --host 127.0.0.1 --port 4567 -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
