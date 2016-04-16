@@ -37,10 +37,10 @@ app.get('/', function(req,res) {
 
 io.on('connection', function(socket) {
 	console.log('a new user connected: ');
-	socket.broadcast.emit('new user', {id: socket.id});
-	socket.on('gear-head',function(msg) {
-		console.log('I received headset-data: ', msg);
-		socket.broadcast.emit('gear-head', {id: socket.id, data: msg})
+	socket.broadcast.emit('newuser', {id: socket.id});
+	socket.on('gearhead',function(msg) {
+		//console.log('I received headset-data: ', msg);
+		socket.broadcast.emit('gearhead', {id: socket.id, data: msg})
 	});
 	socket.on('leap-motion', function(msg) {
 		console.log("got a leap message");
