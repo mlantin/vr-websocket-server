@@ -37,17 +37,28 @@ app.get('/', function(req,res) {
 
 io.on('connection', function(socket) {
 	console.log('a new user connected: ');
-	socket.broadcast.emit('newuser', {id: socket.id});
+
+	// socket.broadcast.emit('newuser', {id: socket.id});
+
+	socket.on('set-username', function(msg) {
+		socket.username = msg["username"];
+		socket.broadcast.emit('newuser', {id: socket.username});
+		console.log("setting the username to "+socket.username);
+	});
+
+	socket.on('user-list', function(msg) {
+
+	});
 	socket.on('gearhead',function(msg) {
 		//console.log('I received headset-data: ', msg);
-		socket.broadcast.emit('gearhead', {id: socket.id, data: msg})
+		socket.broadcast.emit('gearhead', {id: socket.username, data: msg})
 	});
 	socket.on('leap-motion', function(msg) {
 		console.log("got a leap message");
 	});
 	socket.on('disconnect', function() {
 		console.log('a user disconnected')
-		socket.broadcast.emit('user disconnected', {id: socket.id});
+		socket.broadcast.emit('user disconnected', {id: socket.username});
 	})
 });
 
