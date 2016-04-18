@@ -51,14 +51,14 @@ io.on('connection', function(socket) {
 	});
 	socket.on('gearhead',function(msg) {
 		//console.log('I received headset-data: ', msg);
-		socket.broadcast.emit('gearhead', {id: socket.username, data: msg})
+		socket.broadcast.volatile.emit('gearhead', {id: socket.username, data: msg})
 	});
 	socket.on('leap-motion', function(msg) {
 		console.log("got a leap message");
 	});
 	socket.on('disconnect', function() {
 		console.log('a user disconnected')
-		socket.broadcast.emit('user disconnected', {id: socket.username});
+		socket.broadcast.emit('disconnect-user', {id: socket.username});
 	})
 });
 
