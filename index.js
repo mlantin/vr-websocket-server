@@ -42,23 +42,32 @@ io.on('connection', function(socket) {
 
 	socket.on('set-username', function(msg) {
 		socket.username = msg["username"];
-		socket.broadcast.emit('newuser', {id: socket.username});
+		socket.broadcast.emit('newuser', {username: socket.username});
 		console.log("setting the username to "+socket.username);
 	});
 
-	socket.on('user-list', function(msg) {
+	socket.on('get-userlist', function(msg) {
+		var res = [];
+		var i = 0;
+		console.log("sending user list:")
+		for (var sid in io.sockets.sockets) {
+			res[i++] = io.sockets.sockets[sid].username;
+			console.log(io.sockets.sockets[sid].username);
+		}
 
+		socket.emit("userList", {userList: res});
 	});
+
 	socket.on('gearhead',function(msg) {
 		//console.log('I received headset-data: ', msg);
-		socket.broadcast.volatile.emit('gearhead', {id: socket.username, data: msg})
+		socket.broadcast.volatile.emit('gearhead', {username: socket.username, data: msg})
 	});
 	socket.on('leap-motion', function(msg) {
 		console.log("got a leap message");
 	});
 	socket.on('disconnect', function() {
 		console.log('a user disconnected')
-		socket.broadcast.emit('disconnect-user', {id: socket.username});
+		socket.broadcast.emit('disconnect-user', {username: socket.username});
 	})
 });
 
