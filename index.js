@@ -32,13 +32,17 @@ for (x in args) {
 }
 
 app.get('/', function(req,res) {
-	res.send('<h1>Hello world. This is the gearvr websocket server</h1>');
+	res.send('<h1>Hello world. This is the vr websocket server</h1>');
 });
 
 io.on('connection', function(socket) {
-	console.log('a new user connected: ');
+	console.log('a new connection');
 
 	// socket.broadcast.emit('newuser', {id: socket.id});
+
+	socket.on('mocap-connected', function(msg) {
+		console.log("we have a mocap server");
+	});
 
 	socket.on('set-username', function(msg) {
 		socket.username = msg["username"];
@@ -58,6 +62,10 @@ io.on('connection', function(socket) {
 		socket.emit("userList", {userList: res});
 	});
 
+	socket.on('hydra', function(msg) {
+		console.log("got a hydra msg: " + msg);
+	});
+	
 	socket.on('gearhead',function(msg) {
 		//console.log('I received headset-data: ', msg);
 		socket.broadcast.volatile.emit('gearhead', {username: socket.username, data: msg})
