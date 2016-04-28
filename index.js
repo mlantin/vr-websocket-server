@@ -40,8 +40,8 @@ io.on('connection', function(socket) {
 
 	// socket.broadcast.emit('newuser', {id: socket.id});
 
-	socket.on('mocap-connected', function(msg) {
-		console.log("we have a mocap server");
+	socket.on('mocap', function(msg) {
+		console.log("mocap msg : " + msg);
 	});
 
 	socket.on('set-username', function(msg) {
