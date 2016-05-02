@@ -41,7 +41,7 @@ io.on('connection', function(socket) {
 	// socket.broadcast.emit('newuser', {id: socket.id});
 
 	socket.on('obj', function(msg) {
-		//console.log("mocap msg : " + msg);
+		console.log("mocap msg : " + msg);
 		socket.broadcast.emit('obj',msg);
 	});
 
@@ -56,8 +56,10 @@ io.on('connection', function(socket) {
 		var i = 0;
 		console.log("sending user list:")
 		for (var sid in io.sockets.sockets) {
-			res[i++] = io.sockets.sockets[sid].username;
-			console.log(io.sockets.sockets[sid].username);
+			if (io.sockets.sockets[sid].username) {
+				res[i++] = io.sockets.sockets[sid].username;
+				console.log(io.sockets.sockets[sid].username);
+			}
 		}
 
 		socket.emit("userList", {userList: res});
