@@ -15,8 +15,22 @@ message Rotation {
 	float w = 4;
 }
 
+message Joystick {
+	float x = 1;
+	float y = 2;
+}
+
 message Mocap {
 	string name = 1;
 	Position pos = 2;
 	Rotation rot = 3;
+}
+
+message Hydra {
+	int32 ctrl_num = 1;
+	Position pos = 2;
+	Rotation rot = 3;
+	Joystick joy = 4;
+	float trigger = 5;
+	int32 buttons = 6;
 }

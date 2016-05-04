@@ -40,9 +40,13 @@ io.on('connection', function(socket) {
 
 	// socket.broadcast.emit('newuser', {id: socket.id});
 
-	socket.on('obj', function(msg) {
+	socket.on('mocap', function(msg) {
 		console.log("mocap msg : " + msg);
-		socket.broadcast.emit('obj',msg);
+		socket.broadcast.emit('mocap',msg);
+	});
+
+	socket.on('hydra', function(msg) {
+		socket.broadcast.emit('hydra', msg);
 	});
 
 	socket.on('set-username', function(msg) {
@@ -63,10 +67,6 @@ io.on('connection', function(socket) {
 		}
 
 		socket.emit("userList", {userList: res});
-	});
-
-	socket.on('hydra', function(msg) {
-		console.log("got a hydra msg: " + msg);
 	});
 	
 	socket.on('gearhead',function(msg) {
