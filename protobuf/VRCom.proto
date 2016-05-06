@@ -21,9 +21,12 @@ message Joystick {
 }
 
 message Mocap {
-	string name = 1;
-	Position pos = 2;
-	Rotation rot = 3;
+	message Subject {
+		string name = 1;
+		Position pos = 2;
+		Rotation rot = 3;
+	}
+	repeated Subject subjects = 1;
 }
 
 message Hydra {
@@ -33,4 +36,11 @@ message Hydra {
 	Joystick joy = 4;
 	float trigger = 5;
 	int32 buttons = 6;
+}
+
+message Update {
+	oneof vrmsg {
+		Mocap mocap = 1;
+		Hydra hydra = 2;
+	}
 }

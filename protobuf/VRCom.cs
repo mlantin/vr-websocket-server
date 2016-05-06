@@ -26,21 +26,25 @@ namespace Google.Protobuf.VRCom {
             "CgtWUkNvbS5wcm90bxIFVlJDb20iKwoIUG9zaXRpb24SCQoBeBgBIAEoAhIJ",
             "CgF5GAIgASgCEgkKAXoYAyABKAIiNgoIUm90YXRpb24SCQoBeBgBIAEoAhIJ",
             "CgF5GAIgASgCEgkKAXoYAyABKAISCQoBdxgEIAEoAiIgCghKb3lzdGljaxIJ",
-            "CgF4GAEgASgCEgkKAXkYAiABKAIiUQoFTW9jYXASDAoEbmFtZRgBIAEoCRIc",
-            "CgNwb3MYAiABKAsyDy5WUkNvbS5Qb3NpdGlvbhIcCgNyb3QYAyABKAsyDy5W",
-            "UkNvbS5Sb3RhdGlvbiKVAQoFSHlkcmESEAoIY3RybF9udW0YASABKAUSHAoD",
-            "cG9zGAIgASgLMg8uVlJDb20uUG9zaXRpb24SHAoDcm90GAMgASgLMg8uVlJD",
-            "b20uUm90YXRpb24SHAoDam95GAQgASgLMg8uVlJDb20uSm95c3RpY2sSDwoH",
-            "dHJpZ2dlchgFIAEoAhIPCgdidXR0b25zGAYgASgFQhiqAhVHb29nbGUuUHJv",
-            "dG9idWYuVlJDb21iBnByb3RvMw=="));
+            "CgF4GAEgASgCEgkKAXkYAiABKAIihAEKBU1vY2FwEiYKCHN1YmplY3RzGAEg",
+            "AygLMhQuVlJDb20uTW9jYXAuU3ViamVjdBpTCgdTdWJqZWN0EgwKBG5hbWUY",
+            "ASABKAkSHAoDcG9zGAIgASgLMg8uVlJDb20uUG9zaXRpb24SHAoDcm90GAMg",
+            "ASgLMg8uVlJDb20uUm90YXRpb24ilQEKBUh5ZHJhEhAKCGN0cmxfbnVtGAEg",
+            "ASgFEhwKA3BvcxgCIAEoCzIPLlZSQ29tLlBvc2l0aW9uEhwKA3JvdBgDIAEo",
+            "CzIPLlZSQ29tLlJvdGF0aW9uEhwKA2pveRgEIAEoCzIPLlZSQ29tLkpveXN0",
+            "aWNrEg8KB3RyaWdnZXIYBSABKAISDwoHYnV0dG9ucxgGIAEoBSJPCgZVcGRh",
+            "dGUSHQoFbW9jYXAYASABKAsyDC5WUkNvbS5Nb2NhcEgAEh0KBWh5ZHJhGAIg",
+            "ASgLMgwuVlJDb20uSHlkcmFIAEIHCgV2cm1zZ0IYqgIVR29vZ2xlLlByb3Rv",
+            "YnVmLlZSQ29tYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedCodeInfo(null, new pbr::GeneratedCodeInfo[] {
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Position), global::Google.Protobuf.VRCom.Position.Parser, new[]{ "X", "Y", "Z" }, null, null, null),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Rotation), global::Google.Protobuf.VRCom.Rotation.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Joystick), global::Google.Protobuf.VRCom.Joystick.Parser, new[]{ "X", "Y" }, null, null, null),
-            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Mocap), global::Google.Protobuf.VRCom.Mocap.Parser, new[]{ "Name", "Pos", "Rot" }, null, null, null),
-            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Hydra), global::Google.Protobuf.VRCom.Hydra.Parser, new[]{ "CtrlNum", "Pos", "Rot", "Joy", "Trigger", "Buttons" }, null, null, null)
+            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Mocap), global::Google.Protobuf.VRCom.Mocap.Parser, new[]{ "Subjects" }, null, null, new pbr::GeneratedCodeInfo[] { new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Mocap.Types.Subject), global::Google.Protobuf.VRCom.Mocap.Types.Subject.Parser, new[]{ "Name", "Pos", "Rot" }, null, null, null)}),
+            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Hydra), global::Google.Protobuf.VRCom.Hydra.Parser, new[]{ "CtrlNum", "Pos", "Rot", "Joy", "Trigger", "Buttons" }, null, null, null),
+            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Update), global::Google.Protobuf.VRCom.Update.Parser, new[]{ "Mocap", "Hydra" }, new[]{ "Vrmsg" }, null, null)
           }));
     }
     #endregion
@@ -538,43 +542,20 @@ namespace Google.Protobuf.VRCom {
     partial void OnConstruction();
 
     public Mocap(Mocap other) : this() {
-      name_ = other.name_;
-      Pos = other.pos_ != null ? other.Pos.Clone() : null;
-      Rot = other.rot_ != null ? other.Rot.Clone() : null;
+      subjects_ = other.subjects_.Clone();
     }
 
     public Mocap Clone() {
       return new Mocap(this);
     }
 
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 1;
-    private string name_ = "";
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::Preconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "pos" field.</summary>
-    public const int PosFieldNumber = 2;
-    private global::Google.Protobuf.VRCom.Position pos_;
-    public global::Google.Protobuf.VRCom.Position Pos {
-      get { return pos_; }
-      set {
-        pos_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "rot" field.</summary>
-    public const int RotFieldNumber = 3;
-    private global::Google.Protobuf.VRCom.Rotation rot_;
-    public global::Google.Protobuf.VRCom.Rotation Rot {
-      get { return rot_; }
-      set {
-        rot_ = value;
-      }
+    /// <summary>Field number for the "subjects" field.</summary>
+    public const int SubjectsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::Google.Protobuf.VRCom.Mocap.Types.Subject> _repeated_subjects_codec
+        = pb::FieldCodec.ForMessage(10, global::Google.Protobuf.VRCom.Mocap.Types.Subject.Parser);
+    private readonly pbc::RepeatedField<global::Google.Protobuf.VRCom.Mocap.Types.Subject> subjects_ = new pbc::RepeatedField<global::Google.Protobuf.VRCom.Mocap.Types.Subject>();
+    public pbc::RepeatedField<global::Google.Protobuf.VRCom.Mocap.Types.Subject> Subjects {
+      get { return subjects_; }
     }
 
     public override bool Equals(object other) {
@@ -588,17 +569,13 @@ namespace Google.Protobuf.VRCom {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Name != other.Name) return false;
-      if (!object.Equals(Pos, other.Pos)) return false;
-      if (!object.Equals(Rot, other.Rot)) return false;
+      if(!subjects_.Equals(other.subjects_)) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (pos_ != null) hash ^= Pos.GetHashCode();
-      if (rot_ != null) hash ^= Rot.GetHashCode();
+      hash ^= subjects_.GetHashCode();
       return hash;
     }
 
@@ -607,31 +584,12 @@ namespace Google.Protobuf.VRCom {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Name.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Name);
-      }
-      if (pos_ != null) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Pos);
-      }
-      if (rot_ != null) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Rot);
-      }
+      subjects_.WriteTo(output, _repeated_subjects_codec);
     }
 
     public int CalculateSize() {
       int size = 0;
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (pos_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pos);
-      }
-      if (rot_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rot);
-      }
+      size += subjects_.CalculateSize(_repeated_subjects_codec);
       return size;
     }
 
@@ -639,21 +597,7 @@ namespace Google.Protobuf.VRCom {
       if (other == null) {
         return;
       }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.pos_ != null) {
-        if (pos_ == null) {
-          pos_ = new global::Google.Protobuf.VRCom.Position();
-        }
-        Pos.MergeFrom(other.Pos);
-      }
-      if (other.rot_ != null) {
-        if (rot_ == null) {
-          rot_ = new global::Google.Protobuf.VRCom.Rotation();
-        }
-        Rot.MergeFrom(other.Rot);
-      }
+      subjects_.Add(other.subjects_);
     }
 
     public void MergeFrom(pb::CodedInputStream input) {
@@ -664,26 +608,188 @@ namespace Google.Protobuf.VRCom {
             input.SkipLastField();
             break;
           case 10: {
-            Name = input.ReadString();
-            break;
-          }
-          case 18: {
-            if (pos_ == null) {
-              pos_ = new global::Google.Protobuf.VRCom.Position();
-            }
-            input.ReadMessage(pos_);
-            break;
-          }
-          case 26: {
-            if (rot_ == null) {
-              rot_ = new global::Google.Protobuf.VRCom.Rotation();
-            }
-            input.ReadMessage(rot_);
+            subjects_.AddEntriesFrom(input, _repeated_subjects_codec);
             break;
           }
         }
       }
     }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the Mocap message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public static partial class Types {
+      [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+      public sealed partial class Subject : pb::IMessage<Subject> {
+        private static readonly pb::MessageParser<Subject> _parser = new pb::MessageParser<Subject>(() => new Subject());
+        public static pb::MessageParser<Subject> Parser { get { return _parser; } }
+
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Google.Protobuf.VRCom.Mocap.Descriptor.NestedTypes[0]; }
+        }
+
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        public Subject() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        public Subject(Subject other) : this() {
+          name_ = other.name_;
+          Pos = other.pos_ != null ? other.Pos.Clone() : null;
+          Rot = other.rot_ != null ? other.Rot.Clone() : null;
+        }
+
+        public Subject Clone() {
+          return new Subject(this);
+        }
+
+        /// <summary>Field number for the "name" field.</summary>
+        public const int NameFieldNumber = 1;
+        private string name_ = "";
+        public string Name {
+          get { return name_; }
+          set {
+            name_ = pb::Preconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "pos" field.</summary>
+        public const int PosFieldNumber = 2;
+        private global::Google.Protobuf.VRCom.Position pos_;
+        public global::Google.Protobuf.VRCom.Position Pos {
+          get { return pos_; }
+          set {
+            pos_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "rot" field.</summary>
+        public const int RotFieldNumber = 3;
+        private global::Google.Protobuf.VRCom.Rotation rot_;
+        public global::Google.Protobuf.VRCom.Rotation Rot {
+          get { return rot_; }
+          set {
+            rot_ = value;
+          }
+        }
+
+        public override bool Equals(object other) {
+          return Equals(other as Subject);
+        }
+
+        public bool Equals(Subject other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Name != other.Name) return false;
+          if (!object.Equals(Pos, other.Pos)) return false;
+          if (!object.Equals(Rot, other.Rot)) return false;
+          return true;
+        }
+
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Name.Length != 0) hash ^= Name.GetHashCode();
+          if (pos_ != null) hash ^= Pos.GetHashCode();
+          if (rot_ != null) hash ^= Rot.GetHashCode();
+          return hash;
+        }
+
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (Name.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Name);
+          }
+          if (pos_ != null) {
+            output.WriteRawTag(18);
+            output.WriteMessage(Pos);
+          }
+          if (rot_ != null) {
+            output.WriteRawTag(26);
+            output.WriteMessage(Rot);
+          }
+        }
+
+        public int CalculateSize() {
+          int size = 0;
+          if (Name.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+          }
+          if (pos_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Pos);
+          }
+          if (rot_ != null) {
+            size += 1 + pb::CodedOutputStream.ComputeMessageSize(Rot);
+          }
+          return size;
+        }
+
+        public void MergeFrom(Subject other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Name.Length != 0) {
+            Name = other.Name;
+          }
+          if (other.pos_ != null) {
+            if (pos_ == null) {
+              pos_ = new global::Google.Protobuf.VRCom.Position();
+            }
+            Pos.MergeFrom(other.Pos);
+          }
+          if (other.rot_ != null) {
+            if (rot_ == null) {
+              rot_ = new global::Google.Protobuf.VRCom.Rotation();
+            }
+            Rot.MergeFrom(other.Rot);
+          }
+        }
+
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                input.SkipLastField();
+                break;
+              case 10: {
+                Name = input.ReadString();
+                break;
+              }
+              case 18: {
+                if (pos_ == null) {
+                  pos_ = new global::Google.Protobuf.VRCom.Position();
+                }
+                input.ReadMessage(pos_);
+                break;
+              }
+              case 26: {
+                if (rot_ == null) {
+                  rot_ = new global::Google.Protobuf.VRCom.Rotation();
+                }
+                input.ReadMessage(rot_);
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+    #endregion
 
   }
 
@@ -935,6 +1041,175 @@ namespace Google.Protobuf.VRCom {
           }
           case 48: {
             Buttons = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Update : pb::IMessage<Update> {
+    private static readonly pb::MessageParser<Update> _parser = new pb::MessageParser<Update>(() => new Update());
+    public static pb::MessageParser<Update> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public Update() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public Update(Update other) : this() {
+      switch (other.VrmsgCase) {
+        case VrmsgOneofCase.Mocap:
+          Mocap = other.Mocap.Clone();
+          break;
+        case VrmsgOneofCase.Hydra:
+          Hydra = other.Hydra.Clone();
+          break;
+      }
+
+    }
+
+    public Update Clone() {
+      return new Update(this);
+    }
+
+    /// <summary>Field number for the "mocap" field.</summary>
+    public const int MocapFieldNumber = 1;
+    public global::Google.Protobuf.VRCom.Mocap Mocap {
+      get { return vrmsgCase_ == VrmsgOneofCase.Mocap ? (global::Google.Protobuf.VRCom.Mocap) vrmsg_ : null; }
+      set {
+        vrmsg_ = value;
+        vrmsgCase_ = value == null ? VrmsgOneofCase.None : VrmsgOneofCase.Mocap;
+      }
+    }
+
+    /// <summary>Field number for the "hydra" field.</summary>
+    public const int HydraFieldNumber = 2;
+    public global::Google.Protobuf.VRCom.Hydra Hydra {
+      get { return vrmsgCase_ == VrmsgOneofCase.Hydra ? (global::Google.Protobuf.VRCom.Hydra) vrmsg_ : null; }
+      set {
+        vrmsg_ = value;
+        vrmsgCase_ = value == null ? VrmsgOneofCase.None : VrmsgOneofCase.Hydra;
+      }
+    }
+
+    private object vrmsg_;
+    /// <summary>Enum of possible cases for the "vrmsg" oneof.</summary>
+    public enum VrmsgOneofCase {
+      None = 0,
+      Mocap = 1,
+      Hydra = 2,
+    }
+    private VrmsgOneofCase vrmsgCase_ = VrmsgOneofCase.None;
+    public VrmsgOneofCase VrmsgCase {
+      get { return vrmsgCase_; }
+    }
+
+    public void ClearVrmsg() {
+      vrmsgCase_ = VrmsgOneofCase.None;
+      vrmsg_ = null;
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as Update);
+    }
+
+    public bool Equals(Update other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Mocap, other.Mocap)) return false;
+      if (!object.Equals(Hydra, other.Hydra)) return false;
+      if (VrmsgCase != other.VrmsgCase) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (vrmsgCase_ == VrmsgOneofCase.Mocap) hash ^= Mocap.GetHashCode();
+      if (vrmsgCase_ == VrmsgOneofCase.Hydra) hash ^= Hydra.GetHashCode();
+      hash ^= (int) vrmsgCase_;
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (vrmsgCase_ == VrmsgOneofCase.Mocap) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Mocap);
+      }
+      if (vrmsgCase_ == VrmsgOneofCase.Hydra) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Hydra);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (vrmsgCase_ == VrmsgOneofCase.Mocap) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Mocap);
+      }
+      if (vrmsgCase_ == VrmsgOneofCase.Hydra) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hydra);
+      }
+      return size;
+    }
+
+    public void MergeFrom(Update other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.VrmsgCase) {
+        case VrmsgOneofCase.Mocap:
+          Mocap = other.Mocap;
+          break;
+        case VrmsgOneofCase.Hydra:
+          Hydra = other.Hydra;
+          break;
+      }
+
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::Google.Protobuf.VRCom.Mocap subBuilder = new global::Google.Protobuf.VRCom.Mocap();
+            if (vrmsgCase_ == VrmsgOneofCase.Mocap) {
+              subBuilder.MergeFrom(Mocap);
+            }
+            input.ReadMessage(subBuilder);
+            Mocap = subBuilder;
+            break;
+          }
+          case 18: {
+            global::Google.Protobuf.VRCom.Hydra subBuilder = new global::Google.Protobuf.VRCom.Hydra();
+            if (vrmsgCase_ == VrmsgOneofCase.Hydra) {
+              subBuilder.MergeFrom(Hydra);
+            }
+            input.ReadMessage(subBuilder);
+            Hydra = subBuilder;
             break;
           }
         }
