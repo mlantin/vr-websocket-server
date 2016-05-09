@@ -20,13 +20,13 @@ message Joystick {
 	float y = 2;
 }
 
+message MocapSubject {
+	Position pos = 1;
+	Rotation rot = 2;
+}
+
 message Mocap {
-	message Subject {
-		string name = 1;
-		Position pos = 2;
-		Rotation rot = 3;
-	}
-	repeated Subject subjects = 1;
+	map<string, MocapSubject> subjects = 1;
 }
 
 message Hydra {

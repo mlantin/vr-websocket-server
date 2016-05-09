@@ -40,13 +40,14 @@ app.use(function (req, res) {
 
 wss.broadcast = function broadcast(data, flags) {
   wss.clients.forEach(function each(client) {
-    client.send(data, flags);
+  	if (client.readyState === 1)
+    	client.send(data, flags);
   });
 };
 
 wss.broadcastUsers = function broadcastUsers(data, flags) {
 	wss.clients.forEach(function each(client) {
-		if (client.isUser) {
+		if (client.isUser && client.readyState === 1) {
 			client.send(data, flags);
 		}
 	});
@@ -54,13 +55,14 @@ wss.broadcastUsers = function broadcastUsers(data, flags) {
 
 wss.broadcastOtherUsers = function broadcastOtherUsers(ws, data, flags) {
 	wss.clients.forEach(function each(client) {
-		if (client.isUser && client != ws)
+		if (client.isUser && client != ws && client.readyState === 1)
 			client.send(data, flags);
 	});
 }
 
 wss.on('connection', function connection(ws) {
 	console.log('a new connection');
+	//console.log(ws);
 	var location = url.parse(ws.upgradeReq.url, true);
   // you might use location.query.access_token to authenticate or share sessions
   // or ws.upgradeReq.headers.cookie (see http://stackoverflow.com/a/16395220/151312)

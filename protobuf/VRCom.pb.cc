@@ -30,12 +30,13 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Joystick_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Joystick_reflection_ = NULL;
+const ::google::protobuf::Descriptor* MocapSubject_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  MocapSubject_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Mocap_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Mocap_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Mocap_Subject_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Mocap_Subject_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Mocap_SubjectsEntry_descriptor_ = NULL;
 const ::google::protobuf::Descriptor* Hydra_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Hydra_reflection_ = NULL;
@@ -107,7 +108,23 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       sizeof(Joystick),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Joystick, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Joystick, _is_default_instance_));
-  Mocap_descriptor_ = file->message_type(3);
+  MocapSubject_descriptor_ = file->message_type(3);
+  static const int MocapSubject_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, pos_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, rot_),
+  };
+  MocapSubject_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      MocapSubject_descriptor_,
+      MocapSubject::default_instance_,
+      MocapSubject_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(MocapSubject),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, _is_default_instance_));
+  Mocap_descriptor_ = file->message_type(4);
   static const int Mocap_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, subjects_),
   };
@@ -122,24 +139,8 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       sizeof(Mocap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, _is_default_instance_));
-  Mocap_Subject_descriptor_ = Mocap_descriptor_->nested_type(0);
-  static const int Mocap_Subject_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap_Subject, name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap_Subject, pos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap_Subject, rot_),
-  };
-  Mocap_Subject_reflection_ =
-    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      Mocap_Subject_descriptor_,
-      Mocap_Subject::default_instance_,
-      Mocap_Subject_offsets_,
-      -1,
-      -1,
-      -1,
-      sizeof(Mocap_Subject),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap_Subject, _internal_metadata_),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap_Subject, _is_default_instance_));
-  Hydra_descriptor_ = file->message_type(4);
+  Mocap_SubjectsEntry_descriptor_ = Mocap_descriptor_->nested_type(0);
+  Hydra_descriptor_ = file->message_type(5);
   static const int Hydra_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, ctrl_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, pos_),
@@ -159,7 +160,7 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       sizeof(Hydra),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, _is_default_instance_));
-  Update_descriptor_ = file->message_type(5);
+  Update_descriptor_ = file->message_type(6);
   static const int Update_offsets_[3] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Update_default_oneof_instance_, mocap_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Update_default_oneof_instance_, hydra_),
@@ -197,9 +198,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Joystick_descriptor_, &Joystick::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      MocapSubject_descriptor_, &MocapSubject::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Mocap_descriptor_, &Mocap::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      Mocap_Subject_descriptor_, &Mocap_Subject::default_instance());
+        Mocap_SubjectsEntry_descriptor_,
+        ::google::protobuf::internal::MapEntry<
+            ::std::string,
+            ::VRCom::MocapSubject,
+            ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
+            ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
+            0>::CreateDefaultInstance(
+                Mocap_SubjectsEntry_descriptor_));
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Hydra_descriptor_, &Hydra::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -215,10 +225,10 @@ void protobuf_ShutdownFile_VRCom_2eproto() {
   delete Rotation_reflection_;
   delete Joystick::default_instance_;
   delete Joystick_reflection_;
+  delete MocapSubject::default_instance_;
+  delete MocapSubject_reflection_;
   delete Mocap::default_instance_;
   delete Mocap_reflection_;
-  delete Mocap_Subject::default_instance_;
-  delete Mocap_Subject_reflection_;
   delete Hydra::default_instance_;
   delete Hydra_reflection_;
   delete Update::default_instance_;
@@ -236,32 +246,34 @@ void protobuf_AddDesc_VRCom_2eproto() {
     "\n\013VRCom.proto\022\005VRCom\"+\n\010Position\022\t\n\001x\030\001 "
     "\001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"6\n\010Rotation\022\t\n"
     "\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\t\n\001w\030\004 \001("
-    "\002\" \n\010Joystick\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"\204\001\n\005"
-    "Mocap\022&\n\010subjects\030\001 \003(\0132\024.VRCom.Mocap.Su"
-    "bject\032S\n\007Subject\022\014\n\004name\030\001 \001(\t\022\034\n\003pos\030\002 "
-    "\001(\0132\017.VRCom.Position\022\034\n\003rot\030\003 \001(\0132\017.VRCo"
-    "m.Rotation\"\225\001\n\005Hydra\022\020\n\010ctrl_num\030\001 \001(\005\022\034"
-    "\n\003pos\030\002 \001(\0132\017.VRCom.Position\022\034\n\003rot\030\003 \001("
-    "\0132\017.VRCom.Rotation\022\034\n\003joy\030\004 \001(\0132\017.VRCom."
-    "Joystick\022\017\n\007trigger\030\005 \001(\002\022\017\n\007buttons\030\006 \001"
-    "(\005\"O\n\006Update\022\035\n\005mocap\030\001 \001(\0132\014.VRCom.Moca"
-    "pH\000\022\035\n\005hydra\030\002 \001(\0132\014.VRCom.HydraH\000B\007\n\005vr"
-    "msgB\030\252\002\025Google.Protobuf.VRComb\006proto3", 557);
+    "\002\" \n\010Joystick\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"J\n\014M"
+    "ocapSubject\022\034\n\003pos\030\001 \001(\0132\017.VRCom.Positio"
+    "n\022\034\n\003rot\030\002 \001(\0132\017.VRCom.Rotation\"{\n\005Mocap"
+    "\022,\n\010subjects\030\001 \003(\0132\032.VRCom.Mocap.Subject"
+    "sEntry\032D\n\rSubjectsEntry\022\013\n\003key\030\001 \001(\t\022\"\n\005"
+    "value\030\002 \001(\0132\023.VRCom.MocapSubject:\0028\001\"\225\001\n"
+    "\005Hydra\022\020\n\010ctrl_num\030\001 \001(\005\022\034\n\003pos\030\002 \001(\0132\017."
+    "VRCom.Position\022\034\n\003rot\030\003 \001(\0132\017.VRCom.Rota"
+    "tion\022\034\n\003joy\030\004 \001(\0132\017.VRCom.Joystick\022\017\n\007tr"
+    "igger\030\005 \001(\002\022\017\n\007buttons\030\006 \001(\005\"O\n\006Update\022\035"
+    "\n\005mocap\030\001 \001(\0132\014.VRCom.MocapH\000\022\035\n\005hydra\030\002"
+    " \001(\0132\014.VRCom.HydraH\000B\007\n\005vrmsgB\030\252\002\025Google"
+    ".Protobuf.VRComb\006proto3", 623);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "VRCom.proto", &protobuf_RegisterTypes);
   Position::default_instance_ = new Position();
   Rotation::default_instance_ = new Rotation();
   Joystick::default_instance_ = new Joystick();
+  MocapSubject::default_instance_ = new MocapSubject();
   Mocap::default_instance_ = new Mocap();
-  Mocap_Subject::default_instance_ = new Mocap_Subject();
   Hydra::default_instance_ = new Hydra();
   Update::default_instance_ = new Update();
   Update_default_oneof_instance_ = new UpdateOneofInstance();
   Position::default_instance_->InitAsDefaultInstance();
   Rotation::default_instance_->InitAsDefaultInstance();
   Joystick::default_instance_->InitAsDefaultInstance();
+  MocapSubject::default_instance_->InitAsDefaultInstance();
   Mocap::default_instance_->InitAsDefaultInstance();
-  Mocap_Subject::default_instance_->InitAsDefaultInstance();
   Hydra::default_instance_->InitAsDefaultInstance();
   Update::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_VRCom_2eproto);
@@ -1295,128 +1307,106 @@ void Joystick::clear_y() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Mocap_Subject::kNameFieldNumber;
-const int Mocap_Subject::kPosFieldNumber;
-const int Mocap_Subject::kRotFieldNumber;
+const int MocapSubject::kPosFieldNumber;
+const int MocapSubject::kRotFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Mocap_Subject::Mocap_Subject()
+MocapSubject::MocapSubject()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(constructor:VRCom.MocapSubject)
 }
 
-void Mocap_Subject::InitAsDefaultInstance() {
+void MocapSubject::InitAsDefaultInstance() {
   _is_default_instance_ = true;
   pos_ = const_cast< ::VRCom::Position*>(&::VRCom::Position::default_instance());
   rot_ = const_cast< ::VRCom::Rotation*>(&::VRCom::Rotation::default_instance());
 }
 
-Mocap_Subject::Mocap_Subject(const Mocap_Subject& from)
+MocapSubject::MocapSubject(const MocapSubject& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(copy_constructor:VRCom.MocapSubject)
 }
 
-void Mocap_Subject::SharedCtor() {
+void MocapSubject::SharedCtor() {
     _is_default_instance_ = false;
-  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   pos_ = NULL;
   rot_ = NULL;
 }
 
-Mocap_Subject::~Mocap_Subject() {
-  // @@protoc_insertion_point(destructor:VRCom.Mocap.Subject)
+MocapSubject::~MocapSubject() {
+  // @@protoc_insertion_point(destructor:VRCom.MocapSubject)
   SharedDtor();
 }
 
-void Mocap_Subject::SharedDtor() {
-  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void MocapSubject::SharedDtor() {
   if (this != default_instance_) {
     delete pos_;
     delete rot_;
   }
 }
 
-void Mocap_Subject::SetCachedSize(int size) const {
+void MocapSubject::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Mocap_Subject::descriptor() {
+const ::google::protobuf::Descriptor* MocapSubject::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Mocap_Subject_descriptor_;
+  return MocapSubject_descriptor_;
 }
 
-const Mocap_Subject& Mocap_Subject::default_instance() {
+const MocapSubject& MocapSubject::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_VRCom_2eproto();
   return *default_instance_;
 }
 
-Mocap_Subject* Mocap_Subject::default_instance_ = NULL;
+MocapSubject* MocapSubject::default_instance_ = NULL;
 
-Mocap_Subject* Mocap_Subject::New(::google::protobuf::Arena* arena) const {
-  Mocap_Subject* n = new Mocap_Subject;
+MocapSubject* MocapSubject::New(::google::protobuf::Arena* arena) const {
+  MocapSubject* n = new MocapSubject;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Mocap_Subject::Clear() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void MocapSubject::Clear() {
   if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
   pos_ = NULL;
   if (GetArenaNoVirtual() == NULL && rot_ != NULL) delete rot_;
   rot_ = NULL;
 }
 
-bool Mocap_Subject::MergePartialFromCodedStream(
+bool MocapSubject::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(parse_start:VRCom.MocapSubject)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name = 1;
+      // optional .VRCom.Position pos = 1;
       case 1: {
         if (tag == 10) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->name().data(), this->name().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "VRCom.Mocap.Subject.name"));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_pos;
-        break;
-      }
-
-      // optional .VRCom.Position pos = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_pos:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_pos()));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_rot;
+        if (input->ExpectTag(18)) goto parse_rot;
         break;
       }
 
-      // optional .VRCom.Rotation rot = 3;
-      case 3: {
-        if (tag == 26) {
+      // optional .VRCom.Rotation rot = 2;
+      case 2: {
+        if (tag == 18) {
          parse_rot:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_rot()));
@@ -1440,92 +1430,64 @@ bool Mocap_Subject::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(parse_success:VRCom.MocapSubject)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(parse_failure:VRCom.MocapSubject)
   return false;
 #undef DO_
 }
 
-void Mocap_Subject::SerializeWithCachedSizes(
+void MocapSubject::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:VRCom.Mocap.Subject)
-  // optional string name = 1;
-  if (this->name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "VRCom.Mocap.Subject.name");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->name(), output);
-  }
-
-  // optional .VRCom.Position pos = 2;
+  // @@protoc_insertion_point(serialize_start:VRCom.MocapSubject)
+  // optional .VRCom.Position pos = 1;
   if (this->has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->pos_, output);
+      1, *this->pos_, output);
   }
 
-  // optional .VRCom.Rotation rot = 3;
+  // optional .VRCom.Rotation rot = 2;
   if (this->has_rot()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->rot_, output);
+      2, *this->rot_, output);
   }
 
-  // @@protoc_insertion_point(serialize_end:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(serialize_end:VRCom.MocapSubject)
 }
 
-::google::protobuf::uint8* Mocap_Subject::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* MocapSubject::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:VRCom.Mocap.Subject)
-  // optional string name = 1;
-  if (this->name().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->name().data(), this->name().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "VRCom.Mocap.Subject.name");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->name(), target);
-  }
-
-  // optional .VRCom.Position pos = 2;
+  // @@protoc_insertion_point(serialize_to_array_start:VRCom.MocapSubject)
+  // optional .VRCom.Position pos = 1;
   if (this->has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, *this->pos_, target);
+        1, *this->pos_, target);
   }
 
-  // optional .VRCom.Rotation rot = 3;
+  // optional .VRCom.Rotation rot = 2;
   if (this->has_rot()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, *this->rot_, target);
+        2, *this->rot_, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:VRCom.Mocap.Subject)
+  // @@protoc_insertion_point(serialize_to_array_end:VRCom.MocapSubject)
   return target;
 }
 
-int Mocap_Subject::ByteSize() const {
+int MocapSubject::ByteSize() const {
   int total_size = 0;
 
-  // optional string name = 1;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->name());
-  }
-
-  // optional .VRCom.Position pos = 2;
+  // optional .VRCom.Position pos = 1;
   if (this->has_pos()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->pos_);
   }
 
-  // optional .VRCom.Rotation rot = 3;
+  // optional .VRCom.Rotation rot = 2;
   if (this->has_rot()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1538,10 +1500,10 @@ int Mocap_Subject::ByteSize() const {
   return total_size;
 }
 
-void Mocap_Subject::MergeFrom(const ::google::protobuf::Message& from) {
+void MocapSubject::MergeFrom(const ::google::protobuf::Message& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const Mocap_Subject* source = 
-      ::google::protobuf::internal::DynamicCastToGenerated<const Mocap_Subject>(
+  const MocapSubject* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const MocapSubject>(
           &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1550,12 +1512,8 @@ void Mocap_Subject::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Mocap_Subject::MergeFrom(const Mocap_Subject& from) {
+void MocapSubject::MergeFrom(const MocapSubject& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  if (from.name().size() > 0) {
-
-    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
   if (from.has_pos()) {
     mutable_pos()->::VRCom::Position::MergeFrom(from.pos());
   }
@@ -1564,45 +1522,122 @@ void Mocap_Subject::MergeFrom(const Mocap_Subject& from) {
   }
 }
 
-void Mocap_Subject::CopyFrom(const ::google::protobuf::Message& from) {
+void MocapSubject::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Mocap_Subject::CopyFrom(const Mocap_Subject& from) {
+void MocapSubject::CopyFrom(const MocapSubject& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Mocap_Subject::IsInitialized() const {
+bool MocapSubject::IsInitialized() const {
 
   return true;
 }
 
-void Mocap_Subject::Swap(Mocap_Subject* other) {
+void MocapSubject::Swap(MocapSubject* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Mocap_Subject::InternalSwap(Mocap_Subject* other) {
-  name_.Swap(&other->name_);
+void MocapSubject::InternalSwap(MocapSubject* other) {
   std::swap(pos_, other->pos_);
   std::swap(rot_, other->rot_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Mocap_Subject::GetMetadata() const {
+::google::protobuf::Metadata MocapSubject::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Mocap_Subject_descriptor_;
-  metadata.reflection = Mocap_Subject_reflection_;
+  metadata.descriptor = MocapSubject_descriptor_;
+  metadata.reflection = MocapSubject_reflection_;
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// MocapSubject
 
-// -------------------------------------------------------------------
+// optional .VRCom.Position pos = 1;
+bool MocapSubject::has_pos() const {
+  return !_is_default_instance_ && pos_ != NULL;
+}
+void MocapSubject::clear_pos() {
+  if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
+  pos_ = NULL;
+}
+const ::VRCom::Position& MocapSubject::pos() const {
+  // @@protoc_insertion_point(field_get:VRCom.MocapSubject.pos)
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+::VRCom::Position* MocapSubject::mutable_pos() {
+  
+  if (pos_ == NULL) {
+    pos_ = new ::VRCom::Position;
+  }
+  // @@protoc_insertion_point(field_mutable:VRCom.MocapSubject.pos)
+  return pos_;
+}
+::VRCom::Position* MocapSubject::release_pos() {
+  
+  ::VRCom::Position* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+void MocapSubject::set_allocated_pos(::VRCom::Position* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:VRCom.MocapSubject.pos)
+}
+
+// optional .VRCom.Rotation rot = 2;
+bool MocapSubject::has_rot() const {
+  return !_is_default_instance_ && rot_ != NULL;
+}
+void MocapSubject::clear_rot() {
+  if (GetArenaNoVirtual() == NULL && rot_ != NULL) delete rot_;
+  rot_ = NULL;
+}
+const ::VRCom::Rotation& MocapSubject::rot() const {
+  // @@protoc_insertion_point(field_get:VRCom.MocapSubject.rot)
+  return rot_ != NULL ? *rot_ : *default_instance_->rot_;
+}
+::VRCom::Rotation* MocapSubject::mutable_rot() {
+  
+  if (rot_ == NULL) {
+    rot_ = new ::VRCom::Rotation;
+  }
+  // @@protoc_insertion_point(field_mutable:VRCom.MocapSubject.rot)
+  return rot_;
+}
+::VRCom::Rotation* MocapSubject::release_rot() {
+  
+  ::VRCom::Rotation* temp = rot_;
+  rot_ = NULL;
+  return temp;
+}
+void MocapSubject::set_allocated_rot(::VRCom::Rotation* rot) {
+  delete rot_;
+  rot_ = rot;
+  if (rot) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:VRCom.MocapSubject.rot)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Mocap::kSubjectsFieldNumber;
@@ -1629,6 +1664,10 @@ Mocap::Mocap(const Mocap& from)
 void Mocap::SharedCtor() {
     _is_default_instance_ = false;
   _cached_size_ = 0;
+  subjects_.SetAssignDescriptorCallback(
+      protobuf_AssignDescriptorsOnce);
+  subjects_.SetEntryDescriptor(
+      &::VRCom::Mocap_SubjectsEntry_descriptor_);
 }
 
 Mocap::~Mocap() {
@@ -1680,13 +1719,19 @@ bool Mocap::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .VRCom.Mocap.Subject subjects = 1;
+      // map<string, .VRCom.MocapSubject> subjects = 1;
       case 1: {
         if (tag == 10) {
           DO_(input->IncrementRecursionDepth());
          parse_loop_subjects:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtualNoRecursionDepth(
-                input, add_subjects()));
+          ::google::protobuf::scoped_ptr<Mocap_SubjectsEntry> entry(subjects_.NewEntry());
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+              input, entry.get()));
+          (*mutable_subjects())[entry->key()].Swap(entry->mutable_value());
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            entry->key().data(), entry->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "VRCom.Mocap.SubjectsEntry.key"));
         } else {
           goto handle_unusual;
         }
@@ -1720,10 +1765,20 @@ failure:
 void Mocap::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:VRCom.Mocap)
-  // repeated .VRCom.Mocap.Subject subjects = 1;
-  for (unsigned int i = 0, n = this->subjects_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->subjects(i), output);
+  // map<string, .VRCom.MocapSubject> subjects = 1;
+  {
+    ::google::protobuf::scoped_ptr<Mocap_SubjectsEntry> entry;
+    for (::google::protobuf::Map< ::std::string, ::VRCom::MocapSubject >::const_iterator
+        it = this->subjects().begin();
+        it != this->subjects().end(); ++it) {
+      entry.reset(subjects_.NewEntryWrapper(it->first, it->second));
+      ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+          1, *entry, output);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        it->first.data(), it->first.length(),
+        ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+        "VRCom.Mocap.SubjectsEntry.key");
+    }
   }
 
   // @@protoc_insertion_point(serialize_end:VRCom.Mocap)
@@ -1732,11 +1787,21 @@ void Mocap::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Mocap::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:VRCom.Mocap)
-  // repeated .VRCom.Mocap.Subject subjects = 1;
-  for (unsigned int i = 0, n = this->subjects_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->subjects(i), target);
+  // map<string, .VRCom.MocapSubject> subjects = 1;
+  {
+    ::google::protobuf::scoped_ptr<Mocap_SubjectsEntry> entry;
+    for (::google::protobuf::Map< ::std::string, ::VRCom::MocapSubject >::const_iterator
+        it = this->subjects().begin();
+        it != this->subjects().end(); ++it) {
+      entry.reset(subjects_.NewEntryWrapper(it->first, it->second));
+      target = ::google::protobuf::internal::WireFormatLite::
+          WriteMessageNoVirtualToArray(
+              1, *entry, target);
+      ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        it->first.data(), it->first.length(),
+        ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+        "VRCom.Mocap.SubjectsEntry.key");
+    }
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:VRCom.Mocap)
@@ -1746,12 +1811,17 @@ void Mocap::SerializeWithCachedSizes(
 int Mocap::ByteSize() const {
   int total_size = 0;
 
-  // repeated .VRCom.Mocap.Subject subjects = 1;
+  // map<string, .VRCom.MocapSubject> subjects = 1;
   total_size += 1 * this->subjects_size();
-  for (int i = 0; i < this->subjects_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->subjects(i));
+  {
+    ::google::protobuf::scoped_ptr<Mocap_SubjectsEntry> entry;
+    for (::google::protobuf::Map< ::std::string, ::VRCom::MocapSubject >::const_iterator
+        it = this->subjects().begin();
+        it != this->subjects().end(); ++it) {
+      entry.reset(subjects_.NewEntryWrapper(it->first, it->second));
+      total_size += ::google::protobuf::internal::WireFormatLite::
+          MessageSizeNoVirtual(*entry);
+    }
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -1799,7 +1869,7 @@ void Mocap::Swap(Mocap* other) {
   InternalSwap(other);
 }
 void Mocap::InternalSwap(Mocap* other) {
-  subjects_.UnsafeArenaSwap(&other->subjects_);
+  subjects_.Swap(&other->subjects_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1813,157 +1883,24 @@ void Mocap::InternalSwap(Mocap* other) {
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Mocap_Subject
-
-// optional string name = 1;
-void Mocap_Subject::clear_name() {
-  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- const ::std::string& Mocap_Subject::name() const {
-  // @@protoc_insertion_point(field_get:VRCom.Mocap.Subject.name)
-  return name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Mocap_Subject::set_name(const ::std::string& value) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:VRCom.Mocap.Subject.name)
-}
- void Mocap_Subject::set_name(const char* value) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:VRCom.Mocap.Subject.name)
-}
- void Mocap_Subject::set_name(const char* value, size_t size) {
-  
-  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:VRCom.Mocap.Subject.name)
-}
- ::std::string* Mocap_Subject::mutable_name() {
-  
-  // @@protoc_insertion_point(field_mutable:VRCom.Mocap.Subject.name)
-  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* Mocap_Subject::release_name() {
-  
-  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void Mocap_Subject::set_allocated_name(::std::string* name) {
-  if (name != NULL) {
-    
-  } else {
-    
-  }
-  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:VRCom.Mocap.Subject.name)
-}
-
-// optional .VRCom.Position pos = 2;
-bool Mocap_Subject::has_pos() const {
-  return !_is_default_instance_ && pos_ != NULL;
-}
-void Mocap_Subject::clear_pos() {
-  if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
-  pos_ = NULL;
-}
-const ::VRCom::Position& Mocap_Subject::pos() const {
-  // @@protoc_insertion_point(field_get:VRCom.Mocap.Subject.pos)
-  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
-}
-::VRCom::Position* Mocap_Subject::mutable_pos() {
-  
-  if (pos_ == NULL) {
-    pos_ = new ::VRCom::Position;
-  }
-  // @@protoc_insertion_point(field_mutable:VRCom.Mocap.Subject.pos)
-  return pos_;
-}
-::VRCom::Position* Mocap_Subject::release_pos() {
-  
-  ::VRCom::Position* temp = pos_;
-  pos_ = NULL;
-  return temp;
-}
-void Mocap_Subject::set_allocated_pos(::VRCom::Position* pos) {
-  delete pos_;
-  pos_ = pos;
-  if (pos) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:VRCom.Mocap.Subject.pos)
-}
-
-// optional .VRCom.Rotation rot = 3;
-bool Mocap_Subject::has_rot() const {
-  return !_is_default_instance_ && rot_ != NULL;
-}
-void Mocap_Subject::clear_rot() {
-  if (GetArenaNoVirtual() == NULL && rot_ != NULL) delete rot_;
-  rot_ = NULL;
-}
-const ::VRCom::Rotation& Mocap_Subject::rot() const {
-  // @@protoc_insertion_point(field_get:VRCom.Mocap.Subject.rot)
-  return rot_ != NULL ? *rot_ : *default_instance_->rot_;
-}
-::VRCom::Rotation* Mocap_Subject::mutable_rot() {
-  
-  if (rot_ == NULL) {
-    rot_ = new ::VRCom::Rotation;
-  }
-  // @@protoc_insertion_point(field_mutable:VRCom.Mocap.Subject.rot)
-  return rot_;
-}
-::VRCom::Rotation* Mocap_Subject::release_rot() {
-  
-  ::VRCom::Rotation* temp = rot_;
-  rot_ = NULL;
-  return temp;
-}
-void Mocap_Subject::set_allocated_rot(::VRCom::Rotation* rot) {
-  delete rot_;
-  rot_ = rot;
-  if (rot) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:VRCom.Mocap.Subject.rot)
-}
-
-// -------------------------------------------------------------------
-
 // Mocap
 
-// repeated .VRCom.Mocap.Subject subjects = 1;
+// map<string, .VRCom.MocapSubject> subjects = 1;
 int Mocap::subjects_size() const {
   return subjects_.size();
 }
 void Mocap::clear_subjects() {
   subjects_.Clear();
 }
-const ::VRCom::Mocap_Subject& Mocap::subjects(int index) const {
-  // @@protoc_insertion_point(field_get:VRCom.Mocap.subjects)
-  return subjects_.Get(index);
-}
-::VRCom::Mocap_Subject* Mocap::mutable_subjects(int index) {
-  // @@protoc_insertion_point(field_mutable:VRCom.Mocap.subjects)
-  return subjects_.Mutable(index);
-}
-::VRCom::Mocap_Subject* Mocap::add_subjects() {
-  // @@protoc_insertion_point(field_add:VRCom.Mocap.subjects)
-  return subjects_.Add();
-}
-::google::protobuf::RepeatedPtrField< ::VRCom::Mocap_Subject >*
-Mocap::mutable_subjects() {
-  // @@protoc_insertion_point(field_mutable_list:VRCom.Mocap.subjects)
-  return &subjects_;
-}
-const ::google::protobuf::RepeatedPtrField< ::VRCom::Mocap_Subject >&
+ const ::google::protobuf::Map< ::std::string, ::VRCom::MocapSubject >&
 Mocap::subjects() const {
-  // @@protoc_insertion_point(field_list:VRCom.Mocap.subjects)
-  return subjects_;
+  // @@protoc_insertion_point(field_map:VRCom.Mocap.subjects)
+  return subjects_.GetMap();
+}
+ ::google::protobuf::Map< ::std::string, ::VRCom::MocapSubject >*
+Mocap::mutable_subjects() {
+  // @@protoc_insertion_point(field_mutable_map:VRCom.Mocap.subjects)
+  return subjects_.MutableMap();
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
