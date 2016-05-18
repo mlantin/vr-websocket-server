@@ -38,17 +38,22 @@ app.use(function (req, res) {
   res.send({ msg: "hello" });
 });
 
+function ack(error) {
+   if (error)
+   	console.log("error: " + error);
+}
+
 wss.broadcast = function broadcast(data, flags) {
   wss.clients.forEach(function each(client) {
   	if (client.readyState === 1)
-    	client.send(data, flags);
+    	client.send(data, flags, ack);
   });
 };
 
 wss.broadcastUsers = function broadcastUsers(data, flags) {
 	wss.clients.forEach(function each(client) {
 		if (client.isUser && client.readyState === 1) {
-			client.send(data, flags);
+			client.send(data, flags, ack);
 		}
 	});
 }
@@ -56,7 +61,7 @@ wss.broadcastUsers = function broadcastUsers(data, flags) {
 wss.broadcastOtherUsers = function broadcastOtherUsers(ws, data, flags) {
 	wss.clients.forEach(function each(client) {
 		if (client.isUser && client != ws && client.readyState === 1)
-			client.send(data, flags);
+			client.send(data, flags, ack);
 	});
 }
 
