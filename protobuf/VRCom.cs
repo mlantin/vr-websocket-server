@@ -28,15 +28,18 @@ namespace Google.Protobuf.VRCom {
             "CgF5GAIgASgCEgkKAXoYAyABKAISCQoBdxgEIAEoAiIgCghKb3lzdGljaxIJ",
             "CgF4GAEgASgCEgkKAXkYAiABKAIiSgoMTW9jYXBTdWJqZWN0EhwKA3BvcxgB",
             "IAEoCzIPLlZSQ29tLlBvc2l0aW9uEhwKA3JvdBgCIAEoCzIPLlZSQ29tLlJv",
-            "dGF0aW9uInsKBU1vY2FwEiwKCHN1YmplY3RzGAEgAygLMhouVlJDb20uTW9j",
-            "YXAuU3ViamVjdHNFbnRyeRpECg1TdWJqZWN0c0VudHJ5EgsKA2tleRgBIAEo",
-            "CRIiCgV2YWx1ZRgCIAEoCzITLlZSQ29tLk1vY2FwU3ViamVjdDoCOAEilQEK",
-            "BUh5ZHJhEhAKCGN0cmxfbnVtGAEgASgFEhwKA3BvcxgCIAEoCzIPLlZSQ29t",
-            "LlBvc2l0aW9uEhwKA3JvdBgDIAEoCzIPLlZSQ29tLlJvdGF0aW9uEhwKA2pv",
-            "eRgEIAEoCzIPLlZSQ29tLkpveXN0aWNrEg8KB3RyaWdnZXIYBSABKAISDwoH",
-            "YnV0dG9ucxgGIAEoBSJPCgZVcGRhdGUSHQoFbW9jYXAYASABKAsyDC5WUkNv",
-            "bS5Nb2NhcEgAEh0KBWh5ZHJhGAIgASgLMgwuVlJDb20uSHlkcmFIAEIHCgV2",
-            "cm1zZ0IYqgIVR29vZ2xlLlByb3RvYnVmLlZSQ29tYgZwcm90bzM="));
+            "dGF0aW9uIkgKB1dpaW1vdGUSCgoCaWQYASABKAUSFwoPYnV0dG9uc19wcmVz",
+            "c2VkGAIgASgNEhgKEEJ1dHRvbnNfcmVsZWFzZWQYAyABKA0iewoFTW9jYXAS",
+            "LAoIc3ViamVjdHMYASADKAsyGi5WUkNvbS5Nb2NhcC5TdWJqZWN0c0VudHJ5",
+            "GkQKDVN1YmplY3RzRW50cnkSCwoDa2V5GAEgASgJEiIKBXZhbHVlGAIgASgL",
+            "MhMuVlJDb20uTW9jYXBTdWJqZWN0OgI4ASKVAQoFSHlkcmESEAoIY3RybF9u",
+            "dW0YASABKAUSHAoDcG9zGAIgASgLMg8uVlJDb20uUG9zaXRpb24SHAoDcm90",
+            "GAMgASgLMg8uVlJDb20uUm90YXRpb24SHAoDam95GAQgASgLMg8uVlJDb20u",
+            "Sm95c3RpY2sSDwoHdHJpZ2dlchgFIAEoAhIPCgdidXR0b25zGAYgASgFInIK",
+            "BlVwZGF0ZRIdCgVtb2NhcBgBIAEoCzIMLlZSQ29tLk1vY2FwSAASHQoFaHlk",
+            "cmEYAiABKAsyDC5WUkNvbS5IeWRyYUgAEiEKB3dpaW1vdGUYAyABKAsyDi5W",
+            "UkNvbS5XaWltb3RlSABCBwoFdnJtc2dCGKoCFUdvb2dsZS5Qcm90b2J1Zi5W",
+            "UkNvbWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedCodeInfo(null, new pbr::GeneratedCodeInfo[] {
@@ -44,9 +47,10 @@ namespace Google.Protobuf.VRCom {
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Rotation), global::Google.Protobuf.VRCom.Rotation.Parser, new[]{ "X", "Y", "Z", "W" }, null, null, null),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Joystick), global::Google.Protobuf.VRCom.Joystick.Parser, new[]{ "X", "Y" }, null, null, null),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.MocapSubject), global::Google.Protobuf.VRCom.MocapSubject.Parser, new[]{ "Pos", "Rot" }, null, null, null),
+            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Wiimote), global::Google.Protobuf.VRCom.Wiimote.Parser, new[]{ "Id", "ButtonsPressed", "ButtonsReleased" }, null, null, null),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Mocap), global::Google.Protobuf.VRCom.Mocap.Parser, new[]{ "Subjects" }, null, null, new pbr::GeneratedCodeInfo[] { null, }),
             new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Hydra), global::Google.Protobuf.VRCom.Hydra.Parser, new[]{ "CtrlNum", "Pos", "Rot", "Joy", "Trigger", "Buttons" }, null, null, null),
-            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Update), global::Google.Protobuf.VRCom.Update.Parser, new[]{ "Mocap", "Hydra" }, new[]{ "Vrmsg" }, null, null)
+            new pbr::GeneratedCodeInfo(typeof(global::Google.Protobuf.VRCom.Update), global::Google.Protobuf.VRCom.Update.Parser, new[]{ "Mocap", "Hydra", "Wiimote" }, new[]{ "Vrmsg" }, null, null)
           }));
     }
     #endregion
@@ -667,12 +671,169 @@ namespace Google.Protobuf.VRCom {
   }
 
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class Wiimote : pb::IMessage<Wiimote> {
+    private static readonly pb::MessageParser<Wiimote> _parser = new pb::MessageParser<Wiimote>(() => new Wiimote());
+    public static pb::MessageParser<Wiimote> Parser { get { return _parser; } }
+
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    public Wiimote() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    public Wiimote(Wiimote other) : this() {
+      id_ = other.id_;
+      buttonsPressed_ = other.buttonsPressed_;
+      buttonsReleased_ = other.buttonsReleased_;
+    }
+
+    public Wiimote Clone() {
+      return new Wiimote(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "buttons_pressed" field.</summary>
+    public const int ButtonsPressedFieldNumber = 2;
+    private uint buttonsPressed_;
+    public uint ButtonsPressed {
+      get { return buttonsPressed_; }
+      set {
+        buttonsPressed_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Buttons_released" field.</summary>
+    public const int ButtonsReleasedFieldNumber = 3;
+    private uint buttonsReleased_;
+    public uint ButtonsReleased {
+      get { return buttonsReleased_; }
+      set {
+        buttonsReleased_ = value;
+      }
+    }
+
+    public override bool Equals(object other) {
+      return Equals(other as Wiimote);
+    }
+
+    public bool Equals(Wiimote other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (ButtonsPressed != other.ButtonsPressed) return false;
+      if (ButtonsReleased != other.ButtonsReleased) return false;
+      return true;
+    }
+
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (ButtonsPressed != 0) hash ^= ButtonsPressed.GetHashCode();
+      if (ButtonsReleased != 0) hash ^= ButtonsReleased.GetHashCode();
+      return hash;
+    }
+
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (ButtonsPressed != 0) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(ButtonsPressed);
+      }
+      if (ButtonsReleased != 0) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(ButtonsReleased);
+      }
+    }
+
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (ButtonsPressed != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ButtonsPressed);
+      }
+      if (ButtonsReleased != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ButtonsReleased);
+      }
+      return size;
+    }
+
+    public void MergeFrom(Wiimote other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.ButtonsPressed != 0) {
+        ButtonsPressed = other.ButtonsPressed;
+      }
+      if (other.ButtonsReleased != 0) {
+        ButtonsReleased = other.ButtonsReleased;
+      }
+    }
+
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            ButtonsPressed = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            ButtonsReleased = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class Mocap : pb::IMessage<Mocap> {
     private static readonly pb::MessageParser<Mocap> _parser = new pb::MessageParser<Mocap>(() => new Mocap());
     public static pb::MessageParser<Mocap> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[5]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -767,7 +928,7 @@ namespace Google.Protobuf.VRCom {
     public static pb::MessageParser<Hydra> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[6]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -1023,7 +1184,7 @@ namespace Google.Protobuf.VRCom {
     public static pb::MessageParser<Update> Parser { get { return _parser; } }
 
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Google.Protobuf.VRCom.VRComReflection.Descriptor.MessageTypes[7]; }
     }
 
     pbr::MessageDescriptor pb::IMessage.Descriptor {
@@ -1043,6 +1204,9 @@ namespace Google.Protobuf.VRCom {
           break;
         case VrmsgOneofCase.Hydra:
           Hydra = other.Hydra.Clone();
+          break;
+        case VrmsgOneofCase.Wiimote:
+          Wiimote = other.Wiimote.Clone();
           break;
       }
 
@@ -1072,12 +1236,23 @@ namespace Google.Protobuf.VRCom {
       }
     }
 
+    /// <summary>Field number for the "wiimote" field.</summary>
+    public const int WiimoteFieldNumber = 3;
+    public global::Google.Protobuf.VRCom.Wiimote Wiimote {
+      get { return vrmsgCase_ == VrmsgOneofCase.Wiimote ? (global::Google.Protobuf.VRCom.Wiimote) vrmsg_ : null; }
+      set {
+        vrmsg_ = value;
+        vrmsgCase_ = value == null ? VrmsgOneofCase.None : VrmsgOneofCase.Wiimote;
+      }
+    }
+
     private object vrmsg_;
     /// <summary>Enum of possible cases for the "vrmsg" oneof.</summary>
     public enum VrmsgOneofCase {
       None = 0,
       Mocap = 1,
       Hydra = 2,
+      Wiimote = 3,
     }
     private VrmsgOneofCase vrmsgCase_ = VrmsgOneofCase.None;
     public VrmsgOneofCase VrmsgCase {
@@ -1102,6 +1277,7 @@ namespace Google.Protobuf.VRCom {
       }
       if (!object.Equals(Mocap, other.Mocap)) return false;
       if (!object.Equals(Hydra, other.Hydra)) return false;
+      if (!object.Equals(Wiimote, other.Wiimote)) return false;
       if (VrmsgCase != other.VrmsgCase) return false;
       return true;
     }
@@ -1110,6 +1286,7 @@ namespace Google.Protobuf.VRCom {
       int hash = 1;
       if (vrmsgCase_ == VrmsgOneofCase.Mocap) hash ^= Mocap.GetHashCode();
       if (vrmsgCase_ == VrmsgOneofCase.Hydra) hash ^= Hydra.GetHashCode();
+      if (vrmsgCase_ == VrmsgOneofCase.Wiimote) hash ^= Wiimote.GetHashCode();
       hash ^= (int) vrmsgCase_;
       return hash;
     }
@@ -1127,6 +1304,10 @@ namespace Google.Protobuf.VRCom {
         output.WriteRawTag(18);
         output.WriteMessage(Hydra);
       }
+      if (vrmsgCase_ == VrmsgOneofCase.Wiimote) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Wiimote);
+      }
     }
 
     public int CalculateSize() {
@@ -1136,6 +1317,9 @@ namespace Google.Protobuf.VRCom {
       }
       if (vrmsgCase_ == VrmsgOneofCase.Hydra) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Hydra);
+      }
+      if (vrmsgCase_ == VrmsgOneofCase.Wiimote) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Wiimote);
       }
       return size;
     }
@@ -1150,6 +1334,9 @@ namespace Google.Protobuf.VRCom {
           break;
         case VrmsgOneofCase.Hydra:
           Hydra = other.Hydra;
+          break;
+        case VrmsgOneofCase.Wiimote:
+          Wiimote = other.Wiimote;
           break;
       }
 
@@ -1178,6 +1365,15 @@ namespace Google.Protobuf.VRCom {
             }
             input.ReadMessage(subBuilder);
             Hydra = subBuilder;
+            break;
+          }
+          case 26: {
+            global::Google.Protobuf.VRCom.Wiimote subBuilder = new global::Google.Protobuf.VRCom.Wiimote();
+            if (vrmsgCase_ == VrmsgOneofCase.Wiimote) {
+              subBuilder.MergeFrom(Wiimote);
+            }
+            input.ReadMessage(subBuilder);
+            Wiimote = subBuilder;
             break;
           }
         }

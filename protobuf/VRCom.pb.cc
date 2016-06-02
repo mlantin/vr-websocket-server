@@ -33,6 +33,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* MocapSubject_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MocapSubject_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Wiimote_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Wiimote_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Mocap_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Mocap_reflection_ = NULL;
@@ -46,6 +49,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 struct UpdateOneofInstance {
   const ::VRCom::Mocap* mocap_;
   const ::VRCom::Hydra* hydra_;
+  const ::VRCom::Wiimote* wiimote_;
 }* Update_default_oneof_instance_ = NULL;
 
 }  // namespace
@@ -124,7 +128,24 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       sizeof(MocapSubject),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MocapSubject, _is_default_instance_));
-  Mocap_descriptor_ = file->message_type(4);
+  Wiimote_descriptor_ = file->message_type(4);
+  static const int Wiimote_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Wiimote, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Wiimote, buttons_pressed_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Wiimote, buttons_released_),
+  };
+  Wiimote_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      Wiimote_descriptor_,
+      Wiimote::default_instance_,
+      Wiimote_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(Wiimote),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Wiimote, _internal_metadata_),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Wiimote, _is_default_instance_));
+  Mocap_descriptor_ = file->message_type(5);
   static const int Mocap_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, subjects_),
   };
@@ -140,7 +161,7 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Mocap, _is_default_instance_));
   Mocap_SubjectsEntry_descriptor_ = Mocap_descriptor_->nested_type(0);
-  Hydra_descriptor_ = file->message_type(5);
+  Hydra_descriptor_ = file->message_type(6);
   static const int Hydra_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, ctrl_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, pos_),
@@ -160,10 +181,11 @@ void protobuf_AssignDesc_VRCom_2eproto() {
       sizeof(Hydra),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, _internal_metadata_),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Hydra, _is_default_instance_));
-  Update_descriptor_ = file->message_type(6);
-  static const int Update_offsets_[3] = {
+  Update_descriptor_ = file->message_type(7);
+  static const int Update_offsets_[4] = {
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Update_default_oneof_instance_, mocap_),
     PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Update_default_oneof_instance_, hydra_),
+    PROTO2_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET(Update_default_oneof_instance_, wiimote_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Update, vrmsg_),
   };
   Update_reflection_ =
@@ -200,6 +222,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       MocapSubject_descriptor_, &MocapSubject::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      Wiimote_descriptor_, &Wiimote::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       Mocap_descriptor_, &Mocap::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
         Mocap_SubjectsEntry_descriptor_,
@@ -227,6 +251,8 @@ void protobuf_ShutdownFile_VRCom_2eproto() {
   delete Joystick_reflection_;
   delete MocapSubject::default_instance_;
   delete MocapSubject_reflection_;
+  delete Wiimote::default_instance_;
+  delete Wiimote_reflection_;
   delete Mocap::default_instance_;
   delete Mocap_reflection_;
   delete Hydra::default_instance_;
@@ -248,23 +274,27 @@ void protobuf_AddDesc_VRCom_2eproto() {
     "\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\022\t\n\001w\030\004 \001("
     "\002\" \n\010Joystick\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"J\n\014M"
     "ocapSubject\022\034\n\003pos\030\001 \001(\0132\017.VRCom.Positio"
-    "n\022\034\n\003rot\030\002 \001(\0132\017.VRCom.Rotation\"{\n\005Mocap"
-    "\022,\n\010subjects\030\001 \003(\0132\032.VRCom.Mocap.Subject"
-    "sEntry\032D\n\rSubjectsEntry\022\013\n\003key\030\001 \001(\t\022\"\n\005"
-    "value\030\002 \001(\0132\023.VRCom.MocapSubject:\0028\001\"\225\001\n"
-    "\005Hydra\022\020\n\010ctrl_num\030\001 \001(\005\022\034\n\003pos\030\002 \001(\0132\017."
-    "VRCom.Position\022\034\n\003rot\030\003 \001(\0132\017.VRCom.Rota"
-    "tion\022\034\n\003joy\030\004 \001(\0132\017.VRCom.Joystick\022\017\n\007tr"
-    "igger\030\005 \001(\002\022\017\n\007buttons\030\006 \001(\005\"O\n\006Update\022\035"
-    "\n\005mocap\030\001 \001(\0132\014.VRCom.MocapH\000\022\035\n\005hydra\030\002"
-    " \001(\0132\014.VRCom.HydraH\000B\007\n\005vrmsgB\030\252\002\025Google"
-    ".Protobuf.VRComb\006proto3", 623);
+    "n\022\034\n\003rot\030\002 \001(\0132\017.VRCom.Rotation\"H\n\007Wiimo"
+    "te\022\n\n\002id\030\001 \001(\005\022\027\n\017buttons_pressed\030\002 \001(\r\022"
+    "\030\n\020Buttons_released\030\003 \001(\r\"{\n\005Mocap\022,\n\010su"
+    "bjects\030\001 \003(\0132\032.VRCom.Mocap.SubjectsEntry"
+    "\032D\n\rSubjectsEntry\022\013\n\003key\030\001 \001(\t\022\"\n\005value\030"
+    "\002 \001(\0132\023.VRCom.MocapSubject:\0028\001\"\225\001\n\005Hydra"
+    "\022\020\n\010ctrl_num\030\001 \001(\005\022\034\n\003pos\030\002 \001(\0132\017.VRCom."
+    "Position\022\034\n\003rot\030\003 \001(\0132\017.VRCom.Rotation\022\034"
+    "\n\003joy\030\004 \001(\0132\017.VRCom.Joystick\022\017\n\007trigger\030"
+    "\005 \001(\002\022\017\n\007buttons\030\006 \001(\005\"r\n\006Update\022\035\n\005moca"
+    "p\030\001 \001(\0132\014.VRCom.MocapH\000\022\035\n\005hydra\030\002 \001(\0132\014"
+    ".VRCom.HydraH\000\022!\n\007wiimote\030\003 \001(\0132\016.VRCom."
+    "WiimoteH\000B\007\n\005vrmsgB\030\252\002\025Google.Protobuf.V"
+    "RComb\006proto3", 732);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "VRCom.proto", &protobuf_RegisterTypes);
   Position::default_instance_ = new Position();
   Rotation::default_instance_ = new Rotation();
   Joystick::default_instance_ = new Joystick();
   MocapSubject::default_instance_ = new MocapSubject();
+  Wiimote::default_instance_ = new Wiimote();
   Mocap::default_instance_ = new Mocap();
   Hydra::default_instance_ = new Hydra();
   Update::default_instance_ = new Update();
@@ -273,6 +303,7 @@ void protobuf_AddDesc_VRCom_2eproto() {
   Rotation::default_instance_->InitAsDefaultInstance();
   Joystick::default_instance_->InitAsDefaultInstance();
   MocapSubject::default_instance_->InitAsDefaultInstance();
+  Wiimote::default_instance_->InitAsDefaultInstance();
   Mocap::default_instance_->InitAsDefaultInstance();
   Hydra::default_instance_->InitAsDefaultInstance();
   Update::default_instance_->InitAsDefaultInstance();
@@ -1640,6 +1671,348 @@ void MocapSubject::set_allocated_rot(::VRCom::Rotation* rot) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Wiimote::kIdFieldNumber;
+const int Wiimote::kButtonsPressedFieldNumber;
+const int Wiimote::kButtonsReleasedFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Wiimote::Wiimote()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:VRCom.Wiimote)
+}
+
+void Wiimote::InitAsDefaultInstance() {
+  _is_default_instance_ = true;
+}
+
+Wiimote::Wiimote(const Wiimote& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:VRCom.Wiimote)
+}
+
+void Wiimote::SharedCtor() {
+    _is_default_instance_ = false;
+  _cached_size_ = 0;
+  id_ = 0;
+  buttons_pressed_ = 0u;
+  buttons_released_ = 0u;
+}
+
+Wiimote::~Wiimote() {
+  // @@protoc_insertion_point(destructor:VRCom.Wiimote)
+  SharedDtor();
+}
+
+void Wiimote::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Wiimote::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Wiimote::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Wiimote_descriptor_;
+}
+
+const Wiimote& Wiimote::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_VRCom_2eproto();
+  return *default_instance_;
+}
+
+Wiimote* Wiimote::default_instance_ = NULL;
+
+Wiimote* Wiimote::New(::google::protobuf::Arena* arena) const {
+  Wiimote* n = new Wiimote;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Wiimote::Clear() {
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<Wiimote*>(16)->f)
+
+#define ZR_(first, last) do {\
+  ::memset(&first, 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  ZR_(id_, buttons_released_);
+
+#undef ZR_HELPER_
+#undef ZR_
+
+}
+
+bool Wiimote::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:VRCom.Wiimote)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 id = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &id_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_buttons_pressed;
+        break;
+      }
+
+      // optional uint32 buttons_pressed = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_buttons_pressed:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &buttons_pressed_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(24)) goto parse_Buttons_released;
+        break;
+      }
+
+      // optional uint32 Buttons_released = 3;
+      case 3: {
+        if (tag == 24) {
+         parse_Buttons_released:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &buttons_released_)));
+
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:VRCom.Wiimote)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:VRCom.Wiimote)
+  return false;
+#undef DO_
+}
+
+void Wiimote::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:VRCom.Wiimote)
+  // optional int32 id = 1;
+  if (this->id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->id(), output);
+  }
+
+  // optional uint32 buttons_pressed = 2;
+  if (this->buttons_pressed() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->buttons_pressed(), output);
+  }
+
+  // optional uint32 Buttons_released = 3;
+  if (this->buttons_released() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->buttons_released(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:VRCom.Wiimote)
+}
+
+::google::protobuf::uint8* Wiimote::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:VRCom.Wiimote)
+  // optional int32 id = 1;
+  if (this->id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->id(), target);
+  }
+
+  // optional uint32 buttons_pressed = 2;
+  if (this->buttons_pressed() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->buttons_pressed(), target);
+  }
+
+  // optional uint32 Buttons_released = 3;
+  if (this->buttons_released() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->buttons_released(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:VRCom.Wiimote)
+  return target;
+}
+
+int Wiimote::ByteSize() const {
+  int total_size = 0;
+
+  // optional int32 id = 1;
+  if (this->id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->id());
+  }
+
+  // optional uint32 buttons_pressed = 2;
+  if (this->buttons_pressed() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->buttons_pressed());
+  }
+
+  // optional uint32 Buttons_released = 3;
+  if (this->buttons_released() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->buttons_released());
+  }
+
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Wiimote::MergeFrom(const ::google::protobuf::Message& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const Wiimote* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const Wiimote>(
+          &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Wiimote::MergeFrom(const Wiimote& from) {
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  if (from.id() != 0) {
+    set_id(from.id());
+  }
+  if (from.buttons_pressed() != 0) {
+    set_buttons_pressed(from.buttons_pressed());
+  }
+  if (from.buttons_released() != 0) {
+    set_buttons_released(from.buttons_released());
+  }
+}
+
+void Wiimote::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Wiimote::CopyFrom(const Wiimote& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Wiimote::IsInitialized() const {
+
+  return true;
+}
+
+void Wiimote::Swap(Wiimote* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Wiimote::InternalSwap(Wiimote* other) {
+  std::swap(id_, other->id_);
+  std::swap(buttons_pressed_, other->buttons_pressed_);
+  std::swap(buttons_released_, other->buttons_released_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Wiimote::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Wiimote_descriptor_;
+  metadata.reflection = Wiimote_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Wiimote
+
+// optional int32 id = 1;
+void Wiimote::clear_id() {
+  id_ = 0;
+}
+ ::google::protobuf::int32 Wiimote::id() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.id)
+  return id_;
+}
+ void Wiimote::set_id(::google::protobuf::int32 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.id)
+}
+
+// optional uint32 buttons_pressed = 2;
+void Wiimote::clear_buttons_pressed() {
+  buttons_pressed_ = 0u;
+}
+ ::google::protobuf::uint32 Wiimote::buttons_pressed() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.buttons_pressed)
+  return buttons_pressed_;
+}
+ void Wiimote::set_buttons_pressed(::google::protobuf::uint32 value) {
+  
+  buttons_pressed_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.buttons_pressed)
+}
+
+// optional uint32 Buttons_released = 3;
+void Wiimote::clear_buttons_released() {
+  buttons_released_ = 0u;
+}
+ ::google::protobuf::uint32 Wiimote::buttons_released() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.Buttons_released)
+  return buttons_released_;
+}
+ void Wiimote::set_buttons_released(::google::protobuf::uint32 value) {
+  
+  buttons_released_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.Buttons_released)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Mocap::kSubjectsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2491,6 +2864,7 @@ void Hydra::clear_buttons() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Update::kMocapFieldNumber;
 const int Update::kHydraFieldNumber;
+const int Update::kWiimoteFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Update::Update()
@@ -2503,6 +2877,7 @@ void Update::InitAsDefaultInstance() {
   _is_default_instance_ = true;
   Update_default_oneof_instance_->mocap_ = const_cast< ::VRCom::Mocap*>(&::VRCom::Mocap::default_instance());
   Update_default_oneof_instance_->hydra_ = const_cast< ::VRCom::Hydra*>(&::VRCom::Hydra::default_instance());
+  Update_default_oneof_instance_->wiimote_ = const_cast< ::VRCom::Wiimote*>(&::VRCom::Wiimote::default_instance());
 }
 
 Update::Update(const Update& from)
@@ -2567,6 +2942,10 @@ void Update::clear_vrmsg() {
       delete vrmsg_.hydra_;
       break;
     }
+    case kWiimote: {
+      delete vrmsg_.wiimote_;
+      break;
+    }
     case VRMSG_NOT_SET: {
       break;
     }
@@ -2610,6 +2989,19 @@ bool Update::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(26)) goto parse_wiimote;
+        break;
+      }
+
+      // optional .VRCom.Wiimote wiimote = 3;
+      case 3: {
+        if (tag == 26) {
+         parse_wiimote:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_wiimote()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2650,6 +3042,12 @@ void Update::SerializeWithCachedSizes(
       2, *vrmsg_.hydra_, output);
   }
 
+  // optional .VRCom.Wiimote wiimote = 3;
+  if (has_wiimote()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *vrmsg_.wiimote_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:VRCom.Update)
 }
 
@@ -2668,6 +3066,13 @@ void Update::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         2, *vrmsg_.hydra_, target);
+  }
+
+  // optional .VRCom.Wiimote wiimote = 3;
+  if (has_wiimote()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, *vrmsg_.wiimote_, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:VRCom.Update)
@@ -2690,6 +3095,13 @@ int Update::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *vrmsg_.hydra_);
+      break;
+    }
+    // optional .VRCom.Wiimote wiimote = 3;
+    case kWiimote: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *vrmsg_.wiimote_);
       break;
     }
     case VRMSG_NOT_SET: {
@@ -2723,6 +3135,10 @@ void Update::MergeFrom(const Update& from) {
     }
     case kHydra: {
       mutable_hydra()->::VRCom::Hydra::MergeFrom(from.hydra());
+      break;
+    }
+    case kWiimote: {
+      mutable_wiimote()->::VRCom::Wiimote::MergeFrom(from.wiimote());
       break;
     }
     case VRMSG_NOT_SET: {
@@ -2862,6 +3278,53 @@ void Update::set_allocated_hydra(::VRCom::Hydra* hydra) {
     vrmsg_.hydra_ = hydra;
   }
   // @@protoc_insertion_point(field_set_allocated:VRCom.Update.hydra)
+}
+
+// optional .VRCom.Wiimote wiimote = 3;
+bool Update::has_wiimote() const {
+  return vrmsg_case() == kWiimote;
+}
+void Update::set_has_wiimote() {
+  _oneof_case_[0] = kWiimote;
+}
+void Update::clear_wiimote() {
+  if (has_wiimote()) {
+    delete vrmsg_.wiimote_;
+    clear_has_vrmsg();
+  }
+}
+ const ::VRCom::Wiimote& Update::wiimote() const {
+  // @@protoc_insertion_point(field_get:VRCom.Update.wiimote)
+  return has_wiimote()
+      ? *vrmsg_.wiimote_
+      : ::VRCom::Wiimote::default_instance();
+}
+::VRCom::Wiimote* Update::mutable_wiimote() {
+  if (!has_wiimote()) {
+    clear_vrmsg();
+    set_has_wiimote();
+    vrmsg_.wiimote_ = new ::VRCom::Wiimote;
+  }
+  // @@protoc_insertion_point(field_mutable:VRCom.Update.wiimote)
+  return vrmsg_.wiimote_;
+}
+::VRCom::Wiimote* Update::release_wiimote() {
+  if (has_wiimote()) {
+    clear_has_vrmsg();
+    ::VRCom::Wiimote* temp = vrmsg_.wiimote_;
+    vrmsg_.wiimote_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Update::set_allocated_wiimote(::VRCom::Wiimote* wiimote) {
+  clear_vrmsg();
+  if (wiimote) {
+    set_has_wiimote();
+    vrmsg_.wiimote_ = wiimote;
+  }
+  // @@protoc_insertion_point(field_set_allocated:VRCom.Update.wiimote)
 }
 
 bool Update::has_vrmsg() const {

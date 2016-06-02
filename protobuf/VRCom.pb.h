@@ -45,6 +45,7 @@ class MocapSubject;
 class Position;
 class Rotation;
 class Update;
+class Wiimote;
 
 // ===================================================================
 
@@ -415,6 +416,98 @@ class MocapSubject : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Wiimote : public ::google::protobuf::Message {
+ public:
+  Wiimote();
+  virtual ~Wiimote();
+
+  Wiimote(const Wiimote& from);
+
+  inline Wiimote& operator=(const Wiimote& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Wiimote& default_instance();
+
+  void Swap(Wiimote* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Wiimote* New() const { return New(NULL); }
+
+  Wiimote* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Wiimote& from);
+  void MergeFrom(const Wiimote& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(Wiimote* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // optional uint32 buttons_pressed = 2;
+  void clear_buttons_pressed();
+  static const int kButtonsPressedFieldNumber = 2;
+  ::google::protobuf::uint32 buttons_pressed() const;
+  void set_buttons_pressed(::google::protobuf::uint32 value);
+
+  // optional uint32 Buttons_released = 3;
+  void clear_buttons_released();
+  static const int kButtonsReleasedFieldNumber = 3;
+  ::google::protobuf::uint32 buttons_released() const;
+  void set_buttons_released(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:VRCom.Wiimote)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  bool _is_default_instance_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::uint32 buttons_pressed_;
+  ::google::protobuf::uint32 buttons_released_;
+  mutable int _cached_size_;
+  friend void  protobuf_AddDesc_VRCom_2eproto();
+  friend void protobuf_AssignDesc_VRCom_2eproto();
+  friend void protobuf_ShutdownFile_VRCom_2eproto();
+
+  void InitAsDefaultInstance();
+  static Wiimote* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Mocap : public ::google::protobuf::Message {
  public:
   Mocap();
@@ -647,6 +740,7 @@ class Update : public ::google::protobuf::Message {
   enum VrmsgCase {
     kMocap = 1,
     kHydra = 2,
+    kWiimote = 3,
     VRMSG_NOT_SET = 0,
   };
 
@@ -709,11 +803,21 @@ class Update : public ::google::protobuf::Message {
   ::VRCom::Hydra* release_hydra();
   void set_allocated_hydra(::VRCom::Hydra* hydra);
 
+  // optional .VRCom.Wiimote wiimote = 3;
+  bool has_wiimote() const;
+  void clear_wiimote();
+  static const int kWiimoteFieldNumber = 3;
+  const ::VRCom::Wiimote& wiimote() const;
+  ::VRCom::Wiimote* mutable_wiimote();
+  ::VRCom::Wiimote* release_wiimote();
+  void set_allocated_wiimote(::VRCom::Wiimote* wiimote);
+
   VrmsgCase vrmsg_case() const;
   // @@protoc_insertion_point(class_scope:VRCom.Update)
  private:
   inline void set_has_mocap();
   inline void set_has_hydra();
+  inline void set_has_wiimote();
 
   inline bool has_vrmsg() const;
   void clear_vrmsg();
@@ -725,6 +829,7 @@ class Update : public ::google::protobuf::Message {
     VrmsgUnion() {}
     ::VRCom::Mocap* mocap_;
     ::VRCom::Hydra* hydra_;
+    ::VRCom::Wiimote* wiimote_;
   } vrmsg_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -954,6 +1059,52 @@ inline void MocapSubject::set_allocated_rot(::VRCom::Rotation* rot) {
     
   }
   // @@protoc_insertion_point(field_set_allocated:VRCom.MocapSubject.rot)
+}
+
+// -------------------------------------------------------------------
+
+// Wiimote
+
+// optional int32 id = 1;
+inline void Wiimote::clear_id() {
+  id_ = 0;
+}
+inline ::google::protobuf::int32 Wiimote::id() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.id)
+  return id_;
+}
+inline void Wiimote::set_id(::google::protobuf::int32 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.id)
+}
+
+// optional uint32 buttons_pressed = 2;
+inline void Wiimote::clear_buttons_pressed() {
+  buttons_pressed_ = 0u;
+}
+inline ::google::protobuf::uint32 Wiimote::buttons_pressed() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.buttons_pressed)
+  return buttons_pressed_;
+}
+inline void Wiimote::set_buttons_pressed(::google::protobuf::uint32 value) {
+  
+  buttons_pressed_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.buttons_pressed)
+}
+
+// optional uint32 Buttons_released = 3;
+inline void Wiimote::clear_buttons_released() {
+  buttons_released_ = 0u;
+}
+inline ::google::protobuf::uint32 Wiimote::buttons_released() const {
+  // @@protoc_insertion_point(field_get:VRCom.Wiimote.Buttons_released)
+  return buttons_released_;
+}
+inline void Wiimote::set_buttons_released(::google::protobuf::uint32 value) {
+  
+  buttons_released_ = value;
+  // @@protoc_insertion_point(field_set:VRCom.Wiimote.Buttons_released)
 }
 
 // -------------------------------------------------------------------
@@ -1233,6 +1384,53 @@ inline void Update::set_allocated_hydra(::VRCom::Hydra* hydra) {
   // @@protoc_insertion_point(field_set_allocated:VRCom.Update.hydra)
 }
 
+// optional .VRCom.Wiimote wiimote = 3;
+inline bool Update::has_wiimote() const {
+  return vrmsg_case() == kWiimote;
+}
+inline void Update::set_has_wiimote() {
+  _oneof_case_[0] = kWiimote;
+}
+inline void Update::clear_wiimote() {
+  if (has_wiimote()) {
+    delete vrmsg_.wiimote_;
+    clear_has_vrmsg();
+  }
+}
+inline  const ::VRCom::Wiimote& Update::wiimote() const {
+  // @@protoc_insertion_point(field_get:VRCom.Update.wiimote)
+  return has_wiimote()
+      ? *vrmsg_.wiimote_
+      : ::VRCom::Wiimote::default_instance();
+}
+inline ::VRCom::Wiimote* Update::mutable_wiimote() {
+  if (!has_wiimote()) {
+    clear_vrmsg();
+    set_has_wiimote();
+    vrmsg_.wiimote_ = new ::VRCom::Wiimote;
+  }
+  // @@protoc_insertion_point(field_mutable:VRCom.Update.wiimote)
+  return vrmsg_.wiimote_;
+}
+inline ::VRCom::Wiimote* Update::release_wiimote() {
+  if (has_wiimote()) {
+    clear_has_vrmsg();
+    ::VRCom::Wiimote* temp = vrmsg_.wiimote_;
+    vrmsg_.wiimote_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Update::set_allocated_wiimote(::VRCom::Wiimote* wiimote) {
+  clear_vrmsg();
+  if (wiimote) {
+    set_has_wiimote();
+    vrmsg_.wiimote_ = wiimote;
+  }
+  // @@protoc_insertion_point(field_set_allocated:VRCom.Update.wiimote)
+}
+
 inline bool Update::has_vrmsg() const {
   return vrmsg_case() != VRMSG_NOT_SET;
 }
@@ -1243,6 +1441,8 @@ inline Update::VrmsgCase Update::vrmsg_case() const {
   return Update::VrmsgCase(_oneof_case_[0]);
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
