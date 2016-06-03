@@ -88,7 +88,7 @@ wss.on('connection', function connection(ws) {
 	    		console.log("new user: " + jmsg.username);
 	    		ws.isUser = true;
 	    		ws.username = jmsg.username;
-	    		//wss.broadcastOtherUsers(ws, data, flags);
+	    		wss.broadcastOtherUsers(ws, data, flags);
 	    	}
 	    }
 
