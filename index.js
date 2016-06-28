@@ -89,27 +89,21 @@ wss.on('connection', function connection(ws) {
 	    		ws.isUser = true;
 	    		ws.username = jmsg.username;
 	    		wss.broadcastOtherUsers(ws, data, flags);
+	    	} else if (jmsg.hasOwnProperty('get-userlist')) {
+	    		var res = [];
+	    		var i = 0;
+	    		console.log("sending user list:");
+	    		wss.clients.forEach(function each(client) {
+					if (client.isUser) {
+						res[i++] = client.username;
+						console.log(client.username);
+					}
+				});
+				ws.send(""); // CHANGE THIS TO THE PROPER JSON ANSWER
 	    	}
 	    }
 
  	});
-
-	// socket.broadcast.emit('newuser', {id: socket.id});
-
-	// socket.on('mocap', function(msg) {
-	// 	console.log("mocap msg : " + msg);
-	// 	socket.broadcast.emit('mocap',msg);
-	// });
-
-	// socket.on('hydra', function(msg) {
-	// 	socket.broadcast.emit('hydra', msg);
-	// });
-
-	// socket.on('set-username', function(msg) {
-	// 	socket.username = msg["username"];
-	// 	socket.broadcast.emit('newuser', {username: socket.username});
-	// 	console.log("setting the username to "+socket.username);
-	// });
 
 	// socket.on('get-userlist', function(msg) {
 	// 	var res = [];
